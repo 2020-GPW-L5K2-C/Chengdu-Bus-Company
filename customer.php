@@ -7,8 +7,8 @@ require_once('includes/db.php');
 //require ('worker.html');
 
 // 2. Do a query
-$query  = "SELECT id, fname, lname, gender, idno "; 
-$query .= "FROM cdbcus ";
+$query  = "SELECT id, name, gender, idno "; 
+$query .= "FROM customer ";
 
 //echo $query;
 
@@ -30,8 +30,7 @@ if (!$result) {
  <table width="80%" border="double" cellpadding="10" cellspacing="10" align="center" border = "10">
      <tr>
          <td><h4>ID</h4></td>
-         <td><h4>First Name</h4></td>
-         <td><h4>Last Name</h4></td>
+         <td><h4>Name</h4></td>
          <td><h4>Gender</h4></td>
          <td><h4>ID card NO.</h4></td>
          <td><h4>Delete</h4></td>
@@ -44,8 +43,7 @@ if (!$result) {
 while ($row = mysqli_fetch_array($result)) {
     echo "<tr>";
     echo "<td>" . $row["id"] . "</td>";
-    echo "<td>" . $row["fname"] . "</td>";
-    echo "<td>" . $row["lname"] . "</td>";
+    echo "<td>" . $row["name"] . "</td>";
     echo "<td>" . $row["gender"] . "</td>";
     echo "<td>" . $row["idno"] . "</td>";
     
