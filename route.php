@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hospital Inpatient Department</title>
+    <title>The Chengdu Bus Company (CBC)</title>
 <style type="text/css">
 html {
     
@@ -52,9 +52,9 @@ background-color:#cc0000;
 
 // 1. Open database connection
 $dbhost="localhost";
-$dbuser="feng-weilu";
-$dbpass="dszxdz00";
-$dbname="2201713130131";
+$dbuser="384b42c3dfd9";
+$dbpass="72362cd8cff8bd36";
+$dbname="l5k2c";
 
 //connection to the database
 $connection=mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
@@ -68,7 +68,7 @@ if (mysqli_connect_errno()) {
 }
 
 // 2. Do a query
-$query  = "SELECT line, time, stop, atime, price, star, end "; 
+$query  = "SELECT id, star, end, sover "; 
 $query .= "FROM route ";
 
 $result = mysqli_query($connection, $query);
@@ -95,13 +95,10 @@ if (!$result) {
 <table width="80%" border="double" cellpadding="2" cellspacing="1" align="center" class="hello">
                   <thead>
                     <tr>
-                      <th>Line no.</th>
+                      <th>Line ID</th>
                       <th>Departure time</th>
+                      <th>Arrival time</th>    
                       <th>Stop along the way</th>
-                      <th>Arrival time</th>
-                      <th>Ticket Price</th>
-                      <th>Departure Station</th>
-                      <th>Terminus</th>
                       <th>Update</th>
                       <th>Delete</th>
                     </tr>
@@ -111,13 +108,10 @@ if (!$result) {
 // 3. use/show data
 while ($row = mysqli_fetch_array($result)) {
     echo "<tr>";
-    echo "<td>" . $row["line"] . "</td>";
-    echo "<td>" . $row["time"] . "</td>";
-    echo "<td>" . $row["stop"] . "</td>";
-    echo "<td>" . $row["atime"] . "</td>";
-    echo "<td>" . $row["price"] . "</td>";
+    echo "<td>" . $row["id"] . "</td>";
     echo "<td>" . $row["star"] . "</td>";
     echo "<td>" . $row["end"] . "</td>";
+    echo "<td>" . $row["sover"] . "</td>";
     echo "<td><a href='upr.php?id="  .$row["id"] . "'>Update Information</a></td>";  
     echo "<td><a href='der.php?id="  .$row["id"]  ."'>Delete Information</a></td>";
     echo "</tr>";
